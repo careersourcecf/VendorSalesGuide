@@ -24,6 +24,11 @@ APPSTATE = {
         },
         listeners: {
             authenticate: () => {
+                APPSTATE.element.passwordInput.addEventListener("keyup", function(event) {
+                    if (event.keyCode === 13) {
+                        APPSTATE.element.passwordBtn.click();
+                    }
+                });
                 APPSTATE.element.passwordBtn.addEventListener("click", () => {
                     let userPass = btoa(APPSTATE.element.passwordInput.value);
                     console.log('btn clicked')
